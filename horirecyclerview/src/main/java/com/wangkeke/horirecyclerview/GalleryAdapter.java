@@ -2,6 +2,7 @@ package com.wangkeke.horirecyclerview;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,10 +34,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public static final int ITEM_TYPE_HEADER = 0X1112; // header
     public static final int ITEM_TYPE_FOOTER = 0X1113; // footer
 
-    /**
-     * 当前展开的下标list
-     */
-    private List<String> listOpenPosition = new ArrayList<>();
     private Disposable startDispose;
 
     private Context mContext;
@@ -165,8 +162,11 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     public void setCurrentSelectItem(int position, boolean state) {
         clearOtherOpen(position);
-        mDatas.get(position - 1).setSelected(state);
-        mDatas.get(position - 1).setOpen(state);
+        if (state) {
+            listener.onItemClick(position);
+        }
+        mDatas.get(position).setSelected(state);
+        mDatas.get(position).setOpen(state);
         updateItem(position);
     }
 
@@ -192,16 +192,15 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
             final int j = i;
 
-            ((NormalViewHolder) viewHolder).tvBtnText.setText(mDatas.get(j - 1).getText());
-//            ((NormalViewHolder) viewHolder).tvChildrenText.setText(mDatas.get(j - 1).getChildrenText());
+            ((NormalViewHolder) viewHolder).tvBtnText.setText(mDatas.get(j).getText());
 
-            if (mDatas.get(j - 1).isSelected()) {
+            if (mDatas.get(j).isSelected()) {
                 ((NormalViewHolder) viewHolder).tvBtnText.setBackgroundColor(Color.parseColor("#111111"));
             } else {
                 ((NormalViewHolder) viewHolder).tvBtnText.setBackgroundColor(Color.parseColor("#888888"));
             }
 
-            ((NormalViewHolder) viewHolder).layoutSelect.setVisibility(mDatas.get(j - 1).isOpen() ? View.VISIBLE : View.GONE);
+            ((NormalViewHolder) viewHolder).layoutSelect.setVisibility(mDatas.get(j).isOpen() ? View.VISIBLE : View.GONE);
 
             showViewByType(j, ((NormalViewHolder) viewHolder));
 
@@ -218,18 +217,12 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                                 @Override
                                 public void accept(Long aLong) throws Exception {
                                     clearOtherOpen(j);
-                                    if (mDatas.get(j - 1).isOpen()) {
-                                        mDatas.get(j - 1).setOpen(false);
-                                        mDatas.get(j - 1).setSelected(false);
-                                        if (listOpenPosition.contains("" + j)) {
-                                            listOpenPosition.remove("" + j);
-                                        }
+                                    if (mDatas.get(j).isOpen()) {
+                                        mDatas.get(j).setOpen(false);
+                                        mDatas.get(j).setSelected(false);
                                     } else {
-                                        mDatas.get(j - 1).setOpen(true);
-                                        mDatas.get(j - 1).setSelected(true);
-                                        if (!listOpenPosition.contains(j + "")) {
-                                            listOpenPosition.add("" + j);
-                                        }
+                                        mDatas.get(j).setOpen(true);
+                                        mDatas.get(j).setSelected(true);
                                     }
                                     updateItem(j);
                                 }
@@ -247,11 +240,11 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private void showViewByType(int position, NormalViewHolder normalViewHolder) {
         LinearLayout childViewRoot = normalViewHolder.layoutSelect;
         childViewRoot.removeAllViews();
-        switch (mDatas.get(position - 1).getType()) {
+        switch (mDatas.get(position).getType()) {
             case 0:
                 View viewTypeText = mInflater.inflate(R.layout.view_type_text, null);
                 TextView tvTypeText = viewTypeText.findViewById(R.id.tv_text_show);
-                tvTypeText.setText(mDatas.get(position - 1).getChildrenText());
+                tvTypeText.setText(mDatas.get(position).getChildrenText());
                 childViewRoot.addView(viewTypeText);
                 break;
             case 1:
@@ -280,25 +273,25 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             case 2:
                 View viewTypeText1 = mInflater.inflate(R.layout.view_type_text, null);
                 TextView tvTypeText1 = viewTypeText1.findViewById(R.id.tv_text_show);
-                tvTypeText1.setText(mDatas.get(position - 1).getChildrenText());
+                tvTypeText1.setText(mDatas.get(position).getChildrenText());
                 childViewRoot.addView(viewTypeText1);
                 break;
             case 3:
                 View viewTypeText2 = mInflater.inflate(R.layout.view_type_text, null);
                 TextView tvTypeText2 = viewTypeText2.findViewById(R.id.tv_text_show);
-                tvTypeText2.setText(mDatas.get(position - 1).getChildrenText());
+                tvTypeText2.setText(mDatas.get(position).getChildrenText());
                 childViewRoot.addView(viewTypeText2);
                 break;
             case 4:
                 View viewTypeText3 = mInflater.inflate(R.layout.view_type_text, null);
                 TextView tvTypeText3 = viewTypeText3.findViewById(R.id.tv_text_show);
-                tvTypeText3.setText(mDatas.get(position - 1).getChildrenText());
+                tvTypeText3.setText(mDatas.get(position).getChildrenText());
                 childViewRoot.addView(viewTypeText3);
                 break;
             case 5:
                 View viewTypeText4 = mInflater.inflate(R.layout.view_type_text, null);
                 TextView tvTypeText4 = viewTypeText4.findViewById(R.id.tv_text_show);
-                tvTypeText4.setText(mDatas.get(position - 1).getChildrenText());
+                tvTypeText4.setText(mDatas.get(position).getChildrenText());
                 childViewRoot.addView(viewTypeText4);
                 break;
         }
@@ -307,13 +300,11 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private void clearOtherOpen(int i) {
 
-        for (int j = 0; j < listOpenPosition.size(); j++) {
-            if (Integer.parseInt(listOpenPosition.get(j)) != i) {
-                if (mDatas.get(Integer.parseInt(listOpenPosition.get(j)) - 1).isOpen()) {
-                    mDatas.get(Integer.parseInt(listOpenPosition.get(j)) - 1).setOpen(false);
-                    mDatas.get(Integer.parseInt(listOpenPosition.get(j)) - 1).setSelected(false);
-                    updateItem(Integer.parseInt(listOpenPosition.get(j)));
-                }
+        for (int m = 0; m < mDatas.size(); m++) {
+            if (mDatas.get(m).isOpen() && m != i) {
+                mDatas.get(m).setOpen(false);
+                mDatas.get(m).setSelected(false);
+                updateItem(m);
             }
         }
 
