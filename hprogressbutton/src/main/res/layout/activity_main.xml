@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:circle="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.wangkeke.hprogressbutton.MasterLayout
+        android:id="@+id/master_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:clickable="true" >
+    </com.wangkeke.hprogressbutton.MasterLayout>
+
+    <com.wangkeke.hprogressbutton.CircleProgressImageView
+        android:id="@+id/iv"
+        android:background="#de7a7a"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        circle:play_image="@mipmap/start"
+        circle:stop_image="@mipmap/stop"/>
+
+
+    <com.wangkeke.hprogressbutton.CustomProgress
+        android:id="@+id/custom_progress"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_gravity="center"
+        circle:bigCircleColor="#fff"
+        circle:circleColor="#00acaaaa"
+        circle:radius="20dp"
+        circle:rectColor="#fff"
+        circle:ringColor="#ec6d00"
+        circle:strokeWidth="3dp"
+        circle:textColor="#fff" />
+
+</LinearLayout>

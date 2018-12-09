@@ -10,9 +10,12 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/dragfast" />
+            <option value="$PROJECT_DIR$/goomvpdemo" />
             <option value="$PROJECT_DIR$/horirecyclerview" />
+            <option value="$PROJECT_DIR$/hprogressbutton" />
             <option value="$PROJECT_DIR$/mvpdemo" />
             <option value="$PROJECT_DIR$/recyclerviewsnap" />
+            <option value="$PROJECT_DIR$/roomsqlitedemo" />
             <option value="$PROJECT_DIR$/rxjava2use" />
           </set>
         </option>

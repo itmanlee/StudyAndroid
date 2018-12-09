@@ -1,1 +1,1 @@
-include ':app', ':dragfast', ':rxjava2use', ':recyclerviewsnap', ':mvpdemo', ':horirecyclerview'
+include ':app', ':dragfast', ':rxjava2use', ':recyclerviewsnap', ':mvpdemo', ':horirecyclerview', ':hprogressbutton', ':roomsqlitedemo', ':goomvpdemo'
