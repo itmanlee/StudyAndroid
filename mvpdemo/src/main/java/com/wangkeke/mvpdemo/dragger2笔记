@@ -1,0 +1,146 @@
+
+参考博文：https://www.jianshu.com/p/22c397354997/
+
+##  Component依赖Component  ##
+
+一。第一种方式
+
+1.子Component在注解中使用dependencies关键字来与父component连接
+
+   类似:
+
+   parent:
+
+   @Component(modules={CommonActivityModule.class})
+   public interface CommonActivityComponent{
+        Application provideApplication();
+   }
+
+   child:
+
+   @Component(dependencies={CommonActivityComponent.class})
+   public interface ChildActivityComponent{
+       void inject(Activity activity);
+   }
+
+2.父component正常使用即可，子component使用方式如下：
+
+   DaggerChildActivityComponent.builder()
+            .commonActivityComponent(commonActivityComponent)
+            .build().inject(this);
+
+   备注:commonActivityComponent为父实例；
+
+
+二。第二种方式
+
+1.使用subComponent方式
+
+parent：
+
+        @Component(modules=HttpActivityModule.class)
+        public interface HttpActivityComponent{
+            //在父component中定义提供子component的方法(此处是子component不需要参数的情况，需要参数请看下面2处的方法)
+            HttpFragmentComponent httpFragmentComponent();
+        }
+
+child：
+
+        @Subcomponent
+        public interface HttpFragmentComponent{
+            void inject(HttpFragment fragment);
+        }
+
+子component使用方式：
+
+        activityComponent
+            .httpFragmentComponent()
+            .inject(this);
+
+
+2.如果子Component需要参数的话，采用如下方式：
+
+在子Component中使用@Subcomponent.Builder注解
+
+例：
+
+    public class AppBean{}
+    public class ActivityBean{}
+
+    @Module
+    public class MainActivityModule{
+        private ActivityBean activityBean;
+
+        public MainActivityModule(ActivityBean activityBean){
+            this.activityBean = activityBean;
+        }
+
+        @Provides
+        AppBean provideActivityBean(){
+            return this.activityBean;
+        }
+
+    }
+
+    @Module
+    public class AppModule{
+        @Provides
+        AppBean new AppBean();
+    }
+
+    @Component(modules=AppModule.class)
+    public interface AppComponent{
+        MainActivityComponent.MainBuilder mainBuilder();
+    }
+
+    @Subcomponent(modules=MainActivityModule.class)
+    public interface MainActivityComponent{
+        void inject(MainActivity activity);
+
+        @Subcomponent.Builder
+        interface MainBuilder{
+            MainBuilder mainActivityModule(MainActivityModule module);
+            MainActivityComponent build();
+        }
+
+    }
+
+
+    public class App extends Application{
+
+        private AppComponent appComponent;
+
+        @Override
+        public void onCreate(){
+            super.onCreate();
+            appComponent = DaggerAppComponent.create();
+        }
+
+        public AppComponent getAppComponent(){
+            return appComponent;
+        }
+
+    }
+
+
+    注入Activity：
+
+    @Inject
+    AppBean appBean;
+
+    @Inject
+    ActivityBean activityBean;
+
+
+    ((App)getApplication()).getAppComponent()
+            .mainBuilder()
+            .mainActivityModule(new MainActivityModule(new ActivityBean()))
+            .build()
+            .inject(this);
+
+
+
+
+
+
+
