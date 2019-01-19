@@ -1,1 +1,1 @@
-include ':app', ':dragfast', ':rxjava2use', ':recyclerviewsnap', ':mvpdemo', ':horirecyclerview', ':hprogressbutton', ':roomsqlitedemo', ':goomvpdemo', ':annotationkkdemo', ':camera2helper', ':daggeruse'
+include ':app', ':dragfast', ':rxjava2use', ':recyclerviewsnap', ':mvpdemo', ':horirecyclerview', ':hprogressbutton', ':roomsqlitedemo', ':goomvpdemo', ':annotationkkdemo', ':camera2helper', ':daggeruse', ':pcmvideotest'
