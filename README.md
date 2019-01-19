@@ -3,7 +3,7 @@
 
 ## android学习Demo
 
-### 1.dragfast: Drag2简单使用；
+### 1.draguse: Drag2简单使用；
 
 ### 2.goomvpdemo: google mvp使用，一个最简单的的网络请求；
 
