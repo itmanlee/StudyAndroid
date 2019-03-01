@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="tag_drag_evidence"/>
+    <item type="id" name="tag_drag_evidence_party"/>
+
+    <item type="id" name="tag_drag_state_defence"/>
+    <item type="id" name="tag_drag_state_defence_party"/>
+</resources>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_msg">#a1a7b3</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="white_apl50">#80ffffff</color>
+    <color name="black_apl50">#80000000</color>
+    <color name="gray">#FFA5A4A4</color>
+    <color name="text_black">#FF191919</color>
+    <color name="text_less_black">#1a1a1a</color>
+    <color name="text_light_black">#FF7F7F7F</color>
+    <color name="black">#000000</color>
+
+    <color name="back_color">#f0f1f3</color>
+
+    <color name="whrite">#c2c6cc</color>
+    <color name="orange">#d81614</color>
+    <color name="text_yellow">#fff65f</color>
+    <color name="volume_red">#d81614</color>
+    <color name="volume_gray">#c2c6cc</color>
+    <color name="btn_yellow">#fad600</color>
+
+    <color name="text_red">#e4393c</color>
+
+    <color name="btn_case_end">#333333</color>
+    <color name="bg_orangered">#ff4500</color>
+
+    <color name="line_color_run_slow_speed">#66fd3c</color>
+    <color name="line_color_stride">#FD8838</color>
+    <color name="line_color_sport">#FD733E</color>
+    <color name="line_color_run">#FD5546</color>
+    <color name="line_color_run_high_speed">#FD5546</color>
+    <color name="line_color_run_speed_1">#8acb04</color>
+    <color name="line_color_run_speed_3">#4aa657</color>
+    <color name="line_color_run_speed_5">#f3fa07</color>
+    <color name="line_color_run_speed_7">#ffbf05</color>
+    <color name="line_color_run_speed_9">#ff944b</color>
+    <color name="line_color_run_speed_11">#ff6d58</color>
+    <color name="line_color_run_speed_13">#ff2942</color>
+    <color name="line_color_run_speed_15">#e10c05</color>
+    <color name="line_color_run_speed_17">#a5110a</color>
+    <color name="line_color_run_speed_19">#6d0409</color>
+
+    <color name="translucent_background">#dc000000</color>
+    <color name="textbackground">#ccdded</color>
+    <color name="color_red_light">#db705b</color>
+    <color name="color_red_oth">#ec5d41</color>
+    <color name="color_red">#ff0000</color>
+    <color name="color_gray">#242564</color>
+
+    <!--直播数据-->
+    <color name="XY_text_black">#5F5F5F</color>
+    <color name="top_big_red">#A83034</color>
+    <color name="line_red">#E43838</color>
+    <color name="light_red">#F9CECE</color>
+
+    <!-- 坐席确认 新增当事人 -->
+    <color name="default_text_color">#808080</color>
+    <color name="selected_text_color">#1a1a1a</color>
+
+    <color name="court_type_default_color">#999999</color>
+    <color name="court_type_select_color">#1a1a1a</color>
+
+    <color name="confirm_dialog_red">#e4393c</color>
+
+    <color name="colorCirclebg">#100000ff</color>
+    <color name="colorStart">#1212F6</color>
+    <color name="colorEnd">#F212C6</color>
+    <color name="colorYellow">#d9cf0f</color>
+    <color name="colorBackCircle">#ffffff</color>
+    <color name="centerCirColor">#3900f4</color>
+    <color name="startCenterColor">#83B4F5</color>
+    <color name="endCenterColor">#006dfe</color>
+    <color name="colorBlue">#2475E2</color>
+    <color name="case_tools_gra_endcolor">#4dafe1</color>
+    <color name="case_tools_gra_startcolor">#464dafe1</color>
+
+    <color name="key_event_press">#e4393c</color>
+    <color name="key_event_normal">#eb9e9f</color>
+
+</resources>

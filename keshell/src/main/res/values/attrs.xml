@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="VolumeView">
+        //小矩形的间距
+        <attr name="volumeMargin" format="dimension" />
+        //小矩形的高度
+        <attr name="volumeHeight" format="dimension" />
+        //小矩形的数量
+        <attr name="volumeCount" format="integer" />
+    </declare-styleable>
+
+
+    <declare-styleable name="searchedit">
+        <attr name="imagewidth" format="dimension" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="BreatheView">
+        <attr name="duration" format="integer"></attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="PartyInputLay">
+        <attr name="titleName" format="string"/>
+        <attr name="showStar" format="boolean"/>
+        <attr name="showArrow" format="boolean"/>
+        <attr name="isCheck" format="boolean"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="CirclePercentBar">
+        <attr name="arcColor" format="color"/>
+        <attr name="arcWidth" format="dimension"/>
+        <attr name="centerTextColor" format="color"/>
+        <attr name="centerTextSize" format="dimension"/>
+        <attr name="circleRadius" format="dimension"/>
+        <attr name="arcStartColor" format="color"/>
+        <attr name="arcEndColor" format="color"/>
+        <attr name="circleBackColor" format="color"/>
+        <attr name="roundRecRadius" format="dimension"/>
+        <attr name="centerCirColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleWaveButton">
+        <attr name="arcColorWave" format="color"/>
+        <attr name="arcWidthWave" format="dimension"/>
+        <attr name="centerTextColorWave" format="color"/>
+        <attr name="centerTextSizeWave" format="dimension"/>
+        <attr name="circleRadiusWave" format="dimension"/>
+        <attr name="arcStartColorWave" format="color"/>
+        <attr name="arcEndColorWave" format="color"/>
+        <attr name="circleBackColorWave" format="color"/>
+        <attr name="roundRecRadiusWave" format="dimension"/>
+        <attr name="centerCirColorWave" format="color"/>
+    </declare-styleable>
+</resources>

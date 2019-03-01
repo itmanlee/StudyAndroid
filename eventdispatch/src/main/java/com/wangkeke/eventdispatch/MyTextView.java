@@ -41,6 +41,13 @@ public class MyTextView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if(event.getAction() == MotionEvent.ACTION_DOWN){
+            Log.e("wangkeke","myview----onTouchEvent----ACTION_DOWN");
+            return true;
+        }else if(event.getAction() == MotionEvent.ACTION_MOVE){
+            Log.e("wangkeke","myview----onTouchEvent----ACTION_MOVE");
+            return false;
+        }
         Log.e("wangkeke","myview----onTouchEvent");
         return super.onTouchEvent(event);
     }
