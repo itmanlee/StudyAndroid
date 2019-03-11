@@ -23,6 +23,8 @@
             <option value="$PROJECT_DIR$/recyclerviewsnap" />
             <option value="$PROJECT_DIR$/roomsqlitedemo" />
             <option value="$PROJECT_DIR$/rxjava2use" />
+            <option value="$PROJECT_DIR$/virtualapkhost" />
+            <option value="$PROJECT_DIR$/virtualplugin" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
