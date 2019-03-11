@@ -3,11 +3,15 @@ package com.wangkeke.rxjava2use;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
@@ -20,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private ObservableEmitter<String> emitterOne;
     private ObservableEmitter<String> emitterTwo;
+    private Observable<Boolean> ObservableThree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,5 +93,51 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         }).start();
+
+
+        ObservableThree = Observable.create(new ObservableOnSubscribe<Boolean>() {
+            @Override
+            public void subscribe(ObservableEmitter<Boolean> e) throws Exception {
+                Log.e("wangkeke","---------- one");
+                Thread.sleep(1000);
+                e.onNext(true);
+            }
+        }).zipWith(Observable.create(new ObservableOnSubscribe<Boolean>() {
+            @Override
+            public void subscribe(ObservableEmitter<Boolean> e) throws Exception {
+                Log.e("wangkeke","---------- two");
+                Thread.sleep(3000);
+                e.onNext(true);
+            }
+        }), new BiFunction<Boolean, Boolean, Boolean>() {
+            @Override
+            public Boolean apply(Boolean aBoolean, Boolean aBoolean2) throws Exception {
+                if (aBoolean && aBoolean2) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
+
+        Disposable threeDisopose = ObservableThree.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean aBoolean) throws Exception {
+                        Toast.makeText(HomeActivity.this, "value = "+aBoolean.booleanValue(), Toast.LENGTH_SHORT).show();
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        Toast.makeText(HomeActivity.this, "error = "+throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }, new Action() {
+                    @Override
+                    public void run() throws Exception {
+                        Log.e("wangkeke","three ---- onComplete");
+                    }
+                });
+
+
     }
 }
