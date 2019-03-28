@@ -20,11 +20,13 @@
             <option value="$PROJECT_DIR$/keshell" />
             <option value="$PROJECT_DIR$/mvpdemo" />
             <option value="$PROJECT_DIR$/pcmvideotest" />
+            <option value="$PROJECT_DIR$/playbasedemo" />
             <option value="$PROJECT_DIR$/recyclerviewsnap" />
             <option value="$PROJECT_DIR$/roomsqlitedemo" />
             <option value="$PROJECT_DIR$/rxjava2use" />
             <option value="$PROJECT_DIR$/virtualapkhost" />
             <option value="$PROJECT_DIR$/virtualplugin" />
+            <option value="$PROJECT_DIR$/wlmusicdemo" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
