@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        
+        <import type="com.wangkeke.databindingdemo.MainActivity.UserHandler"/>
+        <import type="com.wangkeke.databindingdemo.User"/>
+
+        <variable
+            name="userInfo"
+            type="User"/>
+
+        <variable
+            name="userHandler"
+            type="UserHandler"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{userInfo.name}"
+            android:textColor="#222233"
+            android:textSize="25sp"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(userInfo.age)}"
+            android:textColor="#222233"
+            android:textSize="25sp"
+            />
+
+        <Button
+            android:onClick="@{()->userHandler.changeUserName()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="改变属性name"
+
+            />
+
+        <Button
+            android:onClick="@{()->userHandler.changeUserAge()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="改变属性age"
+
+            />
+
+    </LinearLayout>
+</layout>

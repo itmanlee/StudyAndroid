@@ -39,5 +39,5 @@ dependencies {
 
     /*implementation 'ywl.ywl5320:libmusic:1.2.6'*/
 
-    implementation 'ywl.ywl5320:wlmedia:1.0.0-beta14'
+    implementation 'ywl.ywl5320:wlmedia:1.0.0-beta17'
 }

@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         videoMedia.setVolume(80);//80%音量
         videoMedia.setPlayPitch(1.0f);//正常速度
         videoMedia.setPlaySpeed(1.0f);//正常音调
-        videoMedia.setTimeOut(30);//网络流超时时间
+//        videoMedia.setTimeOut(30);//网络流超时时间
         videoMedia.setShowPcmData(true);//回调返回音频pcm数据
         surfaceView.setWlMedia(videoMedia);//给视频surface设置播放器
 

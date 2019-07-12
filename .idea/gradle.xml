@@ -12,9 +12,13 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/bindercodedemo" />
             <option value="$PROJECT_DIR$/camera2helper" />
+            <option value="$PROJECT_DIR$/camerautilsdemo" />
             <option value="$PROJECT_DIR$/daggeruse" />
+            <option value="$PROJECT_DIR$/databindingdemo" />
             <option value="$PROJECT_DIR$/dragfast" />
             <option value="$PROJECT_DIR$/eventdispatch" />
+            <option value="$PROJECT_DIR$/facedemo" />
+            <option value="$PROJECT_DIR$/filemd5utils" />
             <option value="$PROJECT_DIR$/goomvpdemo" />
             <option value="$PROJECT_DIR$/horirecyclerview" />
             <option value="$PROJECT_DIR$/hprogressbutton" />
